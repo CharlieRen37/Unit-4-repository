@@ -1,10 +1,22 @@
+void setup(){
 size(800,800);
 background(255);
+}
 
-for(float y=-r;y<=2*height; y+=r*3/4){
-  for(float x=-r;x<=2*width;x+=r*3/2){
-    circle(x-offset,y,2*r);
+void draw(){
+  for(float y=50;y<=height; y+=100){
+    for(float x=50;x<=width;x+=100){
+      grid(x,y);
+    }
   }
-  if(offset == 0) offset = 3*r/4;
-  else offset =0;
+}
+void grid (float x,float y){
+  pushMatrix();
+  translate(x,y);
+  fill(0);
+  triangle(-50,-50,0,-50,0,0);
+  triangle(0,0,50,0,50,-50);
+  triangle(0,0,-50,0,-50,50);
+  triangle(0,0,0,50,50,50);
+  popMatrix();
 }
